@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+	<!-- <link rel="stylesheet" type="text/css" href="../static/css/styles.css"> -->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='static/styles.css') }}">
+</head>
+
+<body>
+
+	<header>
+		<div class="container">
+			<div id="brandname">
+				Machine Learning App with Flask
+			</div>
+			<h2>Sistem Rekomendasi Lowongan Pekerjaan</h2>
+
+		</div>
+	</header>
+
+	<div class="ml-container">
+	<p>Enter Your Variable Here</p>
+		{% for kore in komker %}
+		<form action="{{ url_for('predict')}}" method="POST">
+		{{  kore.csrf_token  }} 
+			<!-- <input type="text" name="comment"/> -->
+			<!-- <textarea name="message" rows="4" cols="50"></textarea> -->
+			{# <input type="text" name="Kebutuhan" placeholder="Kebutuhan" required="required" /> #}
+			<input type="text" name="KT_1" placeholder="KT_1" required="required" value="{{ kore[2] }}" />
+			<input type="text" name="KT_2" placeholder="KT_2" required="required" value="{{ kore[3] }}"/>
+			<input type="text" name="KT_3" placeholder="KT_3" required="required" value="{{ kore[4] }}"/>
+			<input type="text" name="KT_4" placeholder="KT_4" required="required" value="{{ kore[5] }}"/>
+			<input type="text" name="KT_5" placeholder="KT_5" required="required" value="{{ kore[6] }}"/>
+			<input type="text" name="KT_6" placeholder="KT_6" required="required" value="{{ kore[7] }}"/>
+			<input type="text" name="KT_7" placeholder="KT_7" required="required" value="{{ kore[8] }}"/>
+			<input type="text" name="KT_8" placeholder="KT_8" required="required" value="{{ kore[9] }}"/>
+			<input type="text" name="PD_1" placeholder="PD_1" required="required" value="{{ kore[10] }}"/>
+			<input type="text" name="PD_2" placeholder="PD_2" required="required" value="{{ kore[11] }}"/>
+			<input type="text" name="PD_3" placeholder="PD_3" required="required" value="{{ kore[12] }}"/>
+			<input type="text" name="IPK_1" placeholder="IPK_1" required="required" value="{{ kore[13] }}"/>
+			<input type="text" name="US_1" placeholder="US_1" required="required" value="{{ kore[14] }}"/>
+			<input type="text" name="US_2" placeholder="US_2" required="required" value="{{ kore[15] }}"/>
+			<input type="text" name="US_3" placeholder="US_3" required="required" value="{{ kore[16] }}"/>
+			<input type="text" name="JK_1" placeholder="JK_1" required="required" value="{{ kore[17] }}"/>
+			<input type="text" name="FG_1" placeholder="FG_1" required="required" value="{{ kore[18] }}"/>
+			<input type="text" name="PL_1" placeholder="PL_1" required="required" value="{{ kore[19] }}"/>
+			<input type="text" name="BS_1" placeholder="BS_1" required="required" value="{{ kore[20] }}"/>
+			<button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+		</form>
+		<br>
+		{% endfor %}
+	<br>
+	   <br>
+	   {{ prediction_text }}
+	</div>
+</body>
+
+</html>

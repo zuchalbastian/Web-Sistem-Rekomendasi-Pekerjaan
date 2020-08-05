@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+	<header>
+		<div class="container">
+		<div id="brandname">
+			ML App 
+		</div>
+		{# <h2>Sistem Rekomendasi Lowongan Pekerjaan</h2> #}
+		
+	</div>
+	</header>
+	<p style="color:blue;font-size:20;text-align: center;"><b>Results for Comment</b></p>
+	<div class="results">
+
+
+		
+	{% if predictions == 1%}
+	<h2 style="color:red;">1. Android/Mobile</h2>
+	{% elif predictions == 2%}
+	<h2 style="color:blue;">2. Backend</h2>
+	{% elif predictions == 6%}
+	<h2 style="color:green;">6. Frontend</h2>
+	{% elif predictions == 9%}
+	<h2 style="color:brown;">9. IT </h2>
+	{% elif predictions == 11%}
+	<h2 style="color:gray;">11. IT/Technical Support</h2>
+	{% elif predictions == 14%}
+	<h2 style="color:orange;">14. Senior </h2>
+	{% elif predictions == 15%}
+	<h2 style="color:purple;">15. Laravel/WEB </h2>
+	{% elif predictions == 18%}
+	<h2 style="color:pink;">18. Programmer </h2>
+	{% elif predictions == 23%}
+	<h2 style="color:black;">23. Developer</h2>
+	{% endif %}
+
+	</div>
+
+</body>
+</html>
